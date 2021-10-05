@@ -30,44 +30,134 @@ main {
   margin: 12em auto 10em auto;
 }
 
-main .main-graphic {
-  height: 10em;
-  width: 240px;
-  position: relative;
+@media screen and (min-width: 1220px) {
+  main {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    height: 60vh;
+    max-width: 992px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: auto;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template: auto / 1fr 1fr;
+  }
+}
+
+main .box-wrapper {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  height: 2em;
+  width: 2em;
+  position: relative;
+  z-index: 2;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+@media screen and (min-width: 1220px) {
+  main .box-wrapper {
+    position: absolute;
+    left: 20%;
+  }
+}
+
+main .box-wrapper .box-illustration {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  position: absolute;
+  top: -300%;
+  right: -20%;
+}
+
+@media screen and (min-width: 1220px) {
+  main .box-wrapper .box-illustration {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    top: -130%;
+    right: 480%;
+  }
+}
+
+main .main-graphic {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: relative;
+  height: 10em;
+  width: 240px;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+@media screen and (min-width: 1220px) {
+  main .main-graphic {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
 main .main-graphic .main-illustration {
   width: 240px;
   position: absolute;
-  top: 35%;
+  top: 15%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   z-index: 1;
 }
 
-main .main-graphic .box-illustration {
-  -webkit-transform: scale(0.5);
-          transform: scale(0.5);
-  position: absolute;
-  top: -22%;
-  left: -21%;
-  z-index: 2;
+@media screen and (min-width: 1220px) {
+  main .main-graphic .main-illustration {
+    width: 472px;
+    top: 50%;
+    left: 30%;
+  }
 }
 
 main .main-graphic .shadow-illustration {
   position: absolute;
-  top: 35%;
+  top: 15%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
-main .accordion-title {
+@media screen and (min-width: 1220px) {
+  main .main-graphic .shadow-illustration {
+    top: 35%;
+    left: -20%;
+  }
+}
+
+main .faq {
+  height: 80%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+@media screen and (min-width: 1220px) {
+  main .faq {
+    padding-right: 9em;
+  }
+}
+
+main .faq .accordion-title {
   color: #1d1e35;
   background-color: white;
   font-size: 1.15em;
@@ -84,13 +174,20 @@ main .accordion-title {
       -ms-flex-pack: justify;
           justify-content: space-between;
   cursor: pointer;
-  /* FIX -- hover state remains after closing the accordion, until you click elsewhere */
-  /*&:hover, &:focus {
-            color: $soft-red;
-        }*/
 }
 
-main .accordion-panel {
+main .faq .accordion-title:hover, main .faq .accordion-title:focus {
+  color: #f47c57;
+}
+
+@media screen and (min-width: 1220px) {
+  main .faq .accordion-title {
+    font-size: 1.25em;
+    padding: 1em 0 1em 0;
+  }
+}
+
+main .faq .accordion-panel {
   display: none;
   overflow: hidden;
   padding: 0.5em 0 1em 0;
@@ -99,7 +196,13 @@ main .accordion-panel {
   transition: max-height 0.2s ease-out;
 }
 
-main .divider {
+@media screen and (min-width: 1220px) {
+  main .faq .accordion-panel {
+    padding: 0.75em 0 1.5em 0;
+  }
+}
+
+main .faq .divider {
   display: block;
   background-color: #e7e7e9;
   height: 1px;
@@ -107,15 +210,15 @@ main .divider {
   margin-top: 5px;
 }
 
-main .active {
+main .faq .active {
   font-weight: 700;
 }
 
-main .active:hover, main .active:focus {
+main .faq .active:hover, main .faq .active:focus {
   color: #1d1e35;
 }
 
-main p {
+main .faq p {
   color: #787887;
 }
 
@@ -123,7 +226,14 @@ h1 {
   color: #1d1e35;
   font-size: 2.75em;
   text-align: center;
-  padding: 0.25em 0 0.5em 0;
+  padding: 0 0 0.5em 0;
+}
+
+@media screen and (min-width: 1220px) {
+  h1 {
+    text-align: left;
+    padding: 0.5em 0 1em 0;
+  }
 }
 
 .attribution {
@@ -136,6 +246,12 @@ h1 {
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
+}
+
+@media screen and (min-width: 1220px) {
+  .attribution {
+    top: 90%;
+  }
 }
 
 .attribution a {

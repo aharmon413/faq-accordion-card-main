@@ -1,6 +1,12 @@
 @import 'variables';
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 html {
     font-size: 100%;
     box-sizing: border-box;
@@ -27,82 +33,148 @@ main {
     box-shadow: 0 .75em 2.5em $very-dark-grayish-blue;
     margin: 12em auto 10em auto;
 
-    .main-graphic {
-        height: 10em;
-        width: 240px;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+    @media screen and (min-width: 1220px) {
+        @include center;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        height: 60vh;
+        max-width: 992px;
+        display: grid;
+        grid-template: auto / 1fr 1fr;
+    }
 
-        .main-illustration {
-            width: 240px;
+    .box-wrapper {
+        @include center;
+        height: 2em;
+        width: 2em;
+        position: relative;
+        z-index: 2;
+        order: 1;
+
+        @media screen and (min-width: 1220px) {
             position: absolute;
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+            left: 20%;
         }
 
         .box-illustration {
             transform: scale(.5);
             position: absolute;
-            top: -22%;
-            left: -21%;
-            z-index: 2;
+            top: -300%;
+            right: -20%;
+    
+            @media screen and (min-width: 1220px) {
+                transform: scale(1);
+                top: -130%;
+                right: 480%;
+            }
+        }
+    }
+
+    .main-graphic {
+        @include center;
+        position: relative;
+        height: 10em;
+        width: 240px;
+        order: 1;
+
+        @media screen and (min-width: 1220px) {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .main-illustration {
+            width: 240px;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            @media screen and (min-width: 1220px) {
+                width: 472px;
+                top: 50%;
+                left: 30%;
+            }
         }
 
         .shadow-illustration {
             position: absolute;
-            top: 35%;
+            top: 15%;
             left: 50%;
             transform: translate(-50%, -50%);
+
+            @media screen and (min-width: 1220px) {
+                top: 35%;
+                left: -20%;
+            }
         }
     }
 
-    .accordion-title {
-        color: $dark-blue;
-        background-color: white;
-        font-size: 1.15em;
-        border-style: none;
-        padding: 1em 0 0.5em 0;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-/* FIX -- hover state remains after closing the accordion, until you click elsewhere */
-        /*&:hover, &:focus {
-            color: $soft-red;
-        }*/
-    }
+    .faq {
+        height: 80%;
+        align-self: center;
+        order: 2;
+        
 
-    .accordion-panel {
-        display: none;
-        overflow: hidden;
-        padding: 0.5em 0 1em 0;
-        max-height: 0;
-        transition: max-height 0.2s ease-out;
-    }
+        @media screen and (min-width: 1220px) {
+            padding-right: 9em;
+        }
 
-    .divider {
-        display: block;
-        background-color: $light-grayish-blue;
-        height: 1px;
-        width: 100%;
-        margin-top: 5px;
-    }
-
-    .active {
-        font-weight: 700;
-
-        &:hover, &:focus {
+        .accordion-title {
             color: $dark-blue;
-        }
-    }
+            background-color: white;
+            font-size: 1.15em;
+            border-style: none;
+            padding: 1em 0 0.5em 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
 
-    p {
-        color: $dark-grayish-blue;
+            &:hover, &:focus {
+                color: $soft-red;
+            }
+
+            @media screen and (min-width: 1220px) {
+                font-size: 1.25em;
+                padding: 1em 0 1em 0;
+            }
+        }
+    
+        .accordion-panel {
+            display: none;
+            overflow: hidden;
+            padding: 0.5em 0 1em 0;
+            max-height: 0;
+            transition: max-height 0.2s ease-out;
+
+            @media screen and (min-width: 1220px) {
+                padding: 0.75em 0 1.5em 0;
+            }
+        }
+    
+        .divider {
+            display: block;
+            background-color: $light-grayish-blue;
+            height: 1px;
+            width: 100%;
+            margin-top: 5px;
+        }
+    
+        .active {
+            font-weight: 700;
+
+            &:hover, &:focus {
+                color: $dark-blue;
+            }
+        }
+    
+        p {
+            color: $dark-grayish-blue;
+        }
     }
 }
 
@@ -110,7 +182,12 @@ h1 {
     color: $dark-blue;
     font-size: 2.75em;
     text-align: center;
-    padding: 0.25em 0 0.5em 0;
+    padding: 0 0 0.5em 0;
+
+    @media screen and (min-width: 1220px) {
+        text-align: left;
+        padding: 0.5em 0 1em 0;
+    }
 }
 
 .attribution {
@@ -122,6 +199,10 @@ h1 {
     position: absolute;
     left: 50%;
     transform: translate(-50%);
+
+    @media screen and (min-width: 1220px) {
+        top: 90%;
+    }
 
     a {
         color: $soft-violet;
