@@ -134,7 +134,7 @@ main {
             justify-content: space-between;
             cursor: pointer;
 
-            &:hover, &:focus {
+            &:hover {
                 color: $soft-red;
             }
 
@@ -167,7 +167,7 @@ main {
         .active {
             font-weight: 700;
 
-            &:hover, &:focus {
+            &:hover {
                 color: $dark-blue;
             }
         }

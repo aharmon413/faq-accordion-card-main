@@ -176,7 +176,7 @@ main .faq .accordion-title {
   cursor: pointer;
 }
 
-main .faq .accordion-title:hover, main .faq .accordion-title:focus {
+main .faq .accordion-title:hover {
   color: #f47c57;
 }
 
@@ -214,7 +214,7 @@ main .faq .active {
   font-weight: 700;
 }
 
-main .faq .active:hover, main .faq .active:focus {
+main .faq .active:hover {
   color: #1d1e35;
 }
 
